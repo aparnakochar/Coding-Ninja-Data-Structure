@@ -30,15 +30,29 @@ public class Solution {
 		 * Return output and don't print it.
 	 	 * Taking input and printing output is handled automatically.
 		*/
-		if(input.length==1){
-          return input[0];
-        }
-		int smallerInput[]=new int[input.length-1];
-      	for(int index=1;index<input.length;index++){
-          smallerInput[index-1]=input[index];
-        }
-     	int total=sum(smallerInput);
-      	total+=input[0];
-      	return total;
+	// 	if(input.length==1){
+	// return input[0];
+	// }
+	// 	int smallerInput[]=new int[input.length-1];
+	// for(int index=1;index<input.length;index++){
+	// smallerInput[index-1]=input[index];
+	// }
+	// int total=sum(smallerInput);
+	// total+=input[0];
+	// return total;
+	// }
+        
+        
+        		return result(input,0);
 	}
+    static int sum=0;
+    public static int result(int input[],int a){
+        // if(a==input.length-1)
+        //     return -1;
+        if(a>input.length-1)
+            return 0;
+        sum+=input[a];
+        result(input,a+1);
+        return sum;
+    }
 }
